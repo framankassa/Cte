@@ -7,7 +7,10 @@
     --text-main: #4a4a4a;
     --shadow: rgba(138, 106, 84, 0.15);
 }
-
+input[type="radio"] {
+    width: auto;
+    margin-right: 5px;
+}
 * {
     box-sizing: border-box;
     margin: 0;
