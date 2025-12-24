@@ -1,16 +1,13 @@
 :root {
-    --bg-color: #fdfcf5; /* Off-white paper color */
-    --hazelnut: #c9a68e; /* Main structural color */
-    --hazelnut-dark: #8a6a54; /* Text and borders */
-    --sage-green: #a7c4a6; /* Secondary accent */
-    --soft-pink: #f4d0d0; /* Highlight/Active state */
-    --text-main: #4a4a4a;
-    --shadow: rgba(138, 106, 84, 0.15);
+    --bg-cream: #fdfaf5;      /* Very light, airy pastel cream */
+    --matcha: #9db68c;        /* Soft matcha green */
+    --matcha-dark: #7a8d6d;
+    --peony-pink: #f8d7da;    /* Soft pastel pink */
+    --peony-dark: #e5b3b8;
+    --text-earth: #5c554a;    /* Soft brownish-grey for text */
+    --white: #ffffff;
 }
-input[type="radio"] {
-    width: auto;
-    margin-right: 5px;
-}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -18,148 +15,139 @@ input[type="radio"] {
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--bg-color);
-    color: var(--text-main);
-    line-height: 1.6;
+    font-family: 'Quicksand', 'Segoe UI', sans-serif;
+    background-color: var(--bg-cream);
+    color: var(--text-earth);
+    line-height: 1.7;
 }
 
 /* --- NAVIGATION --- */
 nav {
     display: flex;
     justify-content: center;
-    background-color: #fff;
-    padding: 20px;
-    border-bottom: 3px solid var(--hazelnut);
-    box-shadow: 0 4px 15px var(--shadow);
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px); /* Makes it look airy and modern */
+    padding: 25px;
     position: sticky;
     top: 0;
     z-index: 100;
+    border-bottom: 1px solid var(--peony-pink);
 }
 
 nav a {
     text-decoration: none;
-    color: var(--hazelnut-dark);
+    color: var(--matcha-dark);
     font-weight: 600;
-    margin: 0 15px;
-    padding: 10px 20px;
-    border-radius: 25px;
-    transition: all 0.3s ease;
-    border: 1px solid transparent;
+    margin: 0 20px;
+    padding: 8px 16px;
+    border-radius: 12px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* Hover Effect: Mouse over */
+/* Hover Effect: Soft grow and color swap */
 nav a:hover {
-    background-color: var(--sage-green);
-    color: white;
-    transform: translateY(-2px);
+    background-color: var(--peony-pink);
+    color: var(--text-earth);
+    transform: scale(1.1);
 }
 
-/* Active Page Effect: Shows user where they are */
+/* Active Page: The pink highlight */
 nav a.active {
-    background-color: var(--soft-pink);
-    color: var(--hazelnut-dark);
-    border: 1px solid var(--hazelnut);
+    background-color: var(--peony-pink);
+    border-bottom: 3px solid var(--peony-dark);
 }
 
-/* --- LAYOUT --- */
+/* --- CONTAINERS --- */
 .container {
-    max-width: 1000px;
-    margin: 40px auto;
+    max-width: 900px;
+    margin: 50px auto;
     padding: 40px;
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px var(--shadow);
-    border-top: 10px solid var(--sage-green);
+    background: var(--white);
+    border-radius: 30px; /* Extra rounded for that airy feel */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.03);
 }
 
-h1, h2 {
-    color: var(--hazelnut-dark);
-    text-align: center;
-    margin-bottom: 30px;
+h1 {
     font-weight: 300;
+    font-size: 2.2rem;
+    color: var(--matcha-dark);
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* --- TIMETABLE VIBES --- */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 8px; /* Adds space between cells for airiness */
+}
+
+th {
+    font-weight: 600;
+    color: var(--matcha-dark);
+    padding: 15px;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+}
+
+td {
+    background: var(--bg-cream);
+    padding: 18px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 0.95rem;
+    border: 1px solid transparent;
+    transition: 0.3s;
+}
+
+td:hover {
+    border-color: var(--peony-pink);
+    transform: translateY(-3px);
+    background: var(--white);
+}
+
+/* Subject Aesthetic Classes */
+.math { background-color: #fcebed; color: #d68a91; }
+.eng { background-color: #e8f4f8; color: #7ab3c4; }
+.sci { background-color: #f1f7ec; color: #9db68c; }
+.web { background-color: #fef5e7; color: #d4a373; }
+.agri { background-color: #f0f4ef; color: #8a9a5b; }
+.ict { background-color: #f5f0f9; color: #a38db8; }
+
+.special-break {
+    background-color: var(--peony-pink) !important;
+    color: var(--text-earth);
+    font-weight: bold;
     letter-spacing: 1px;
 }
 
-h1 { font-size: 2.5rem; border-bottom: 2px solid var(--soft-pink); padding-bottom: 15px; display: inline-block; }
-
-/* --- FORMS (Registration & Contact) --- */
-.form-group { margin-bottom: 20px; }
-
-label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-    color: var(--hazelnut-dark);
+.lunch {
+    background-color: var(--matcha) !important;
+    color: white;
 }
 
+/* --- FORM STYLING --- */
 input, select, textarea {
-    width: 100%;
+    border: 1px solid var(--peony-pink);
+    background-color: var(--bg-cream);
+    border-radius: 12px;
     padding: 12px;
-    border: 2px solid var(--hazelnut);
-    border-radius: 8px;
-    font-size: 16px;
-    background-color: #fafafa;
-    transition: border-color 0.3s;
-}
-
-input:focus, textarea:focus {
-    outline: none;
-    border-color: var(--sage-green);
-    background-color: white;
+    margin-top: 5px;
 }
 
 .btn-submit {
-    display: block;
-    width: 100%;
-    padding: 15px;
-    background-color: var(--hazelnut);
+    background-color: var(--matcha);
     color: white;
+    border-radius: 12px;
+    padding: 15px;
     border: none;
-    border-radius: 8px;
-    font-size: 18px;
+    font-weight: 600;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: 0.3s;
 }
 
-.btn-submit:hover { background-color: var(--hazelnut-dark); }
-
-/* --- ABOUT US GRID --- */
-.team-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+.btn-submit:hover {
+    background-color: var(--peony-dark);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
-
-.member-card {
-    background: #fff;
-    border: 1px solid var(--hazelnut);
-    border-radius: 10px;
-    padding: 20px;
-    text-align: center;
-    transition: transform 0.3s;
-}
-
-.member-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px var(--shadow);
-    border-color: var(--soft-pink);
-}
-
-.member-card h3 { margin-bottom: 5px; color: var(--hazelnut-dark); }
-.role { color: var(--sage-green); font-weight: bold; font-size: 0.9em; text-transform: uppercase; letter-spacing: 1px; }
-.desc { font-size: 0.9rem; margin-top: 10px; color: #666; font-style: italic; }
-
-/* --- TIMETABLE --- */
-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-th { background-color: var(--hazelnut); color: white; padding: 15px; }
-td { border: 1px solid #eee; padding: 15px; text-align: center; font-weight: 500; }
-
-/* Subject Color Coding */
-.math { background-color: #ffe4e1; border-left: 5px solid #ff6b6b; }
-.eng { background-color: #e3f2fd; border-left: 5px solid #2196f3; }
-.sci { background-color: #e8f5e9; border-left: 5px solid #4caf50; } /* Bio, Phy, Chem */
-.web { background-color: #fff3e0; border-left: 5px solid #ff9800; }
-.agri { background-color: #f1f8e9; border-left: 5px solid #8bc34a; }
-.ict { background-color: #f3e5f5; border-left: 5px solid #9c27b0; }
-.break { background-color: #fafafa; color: #aaa; font-style: italic; }
