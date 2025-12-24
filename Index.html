@@ -2,22 +2,72 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>GROUP PROJECT - HOME</title>
+    <title>School of Redemption | Registration</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <nav>
-        <a href="index.html" class="nav-btn">HOME</a>
-        <a href="about.html" class="nav-btn">ABOUT US</a>
-        <a href="service.html" class="nav-btn">TIMETABLE</a>
-        <a href="contact.html" class="nav-btn">CONTACT US</a>
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="service.html">Timetable</a>
+        <a href="contact.html">Contact</a>
     </nav>
 
-    <div class="content-box">
-        <h1 class="flash-text">OFFICIAL GROUP COLLABORATION PORTAL</h1>
-        <p>This digital platform represents the collective efforts of our project group. We are currently enrolled as students at the School of Redemption, where we are pursuing our secondary education. This website serves as a formal demonstration of our technical proficiency in web development and systems organization within an academic context.</p>
-        <p>Our primary objective is to utilize standardized coding practices to create a functional repository for our group data. While our aesthetic choices are intentionally distinct, the underlying architecture adheres to the requirements set forth in our high school curriculum.</p>
-        <div class="moving-box">STUDENT WORK - SCHOOL OF REDEMPTION</div>
+    <div class="container">
+        <h1>Student Registration Portal</h1>
+        <p style="text-align: center; margin-bottom: 30px;">
+            Please complete the form below to enroll in the official project group database for the School of Redemption.
+        </p>
+        
+        <form style="max-width: 600px; margin: 0 auto;">
+            <div class="form-group">
+                <label for="full-name">Full Name</label>
+                <input type="text" id="full-name" name="full-name" placeholder="e.g., Abebe Bikila" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="example@mail.com" required>
+            </div>
+
+            <div style="display: flex; gap: 20px;">
+                <div class="form-group" style="flex: 1;">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+251..." required>
+                </div>
+                <div class="form-group" style="flex: 1;">
+                    <label for="dob">Birthdate</label>
+                    <input type="date" id="dob" name="dob" required>
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 20px;">
+                <div class="form-group" style="flex: 1;">
+                    <label>Gender</label>
+                    <div style="display: flex; gap: 15px; padding-top: 10px;">
+                        <label style="font-weight: normal;">
+                            <input type="radio" name="gender" value="male" style="width: auto;"> Male
+                        </label>
+                        <label style="font-weight: normal;">
+                            <input type="radio" name="gender" value="female" style="width: auto;"> Female
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group" style="flex: 1;">
+                    <label for="section">Class Section (Grade 12)</label>
+                    <select id="section" name="section" required>
+                        <option value="" disabled selected>Select Section</option>
+                        <option value="12A">12 A</option>
+                        <option value="12B">12 B</option>
+                        <option value="12C">12 C</option>
+                        <option value="12D">12 D</option>
+                    </select>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-submit" style="margin-top: 20px;">Complete Registration</button>
+        </form>
     </div>
 </body>
 </html>
