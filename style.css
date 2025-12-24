@@ -1,11 +1,10 @@
 :root {
-    --bg-cream: #fdfaf5;      /* Very light, airy pastel cream */
-    --matcha: #9db68c;        /* Soft matcha green */
-    --matcha-dark: #7a8d6d;
-    --peony-pink: #f8d7da;    /* Soft pastel pink */
-    --peony-dark: #e5b3b8;
-    --text-earth: #5c554a;    /* Soft brownish-grey for text */
-    --white: #ffffff;
+    --void-black: #0d0d0d;
+    --manic-pink: #ff00ff;
+    --tear-blue: #00ffff;
+    --bruise-purple: #7000ff;
+    --anxiety-yellow: #ffff00;
+    --melancholy-grey: #444444;
 }
 
 * {
@@ -15,139 +14,174 @@
 }
 
 body {
-    font-family: 'Quicksand', 'Segoe UI', sans-serif;
-    background-color: var(--bg-cream);
-    color: var(--text-earth);
-    line-height: 1.7;
+    font-family: 'Courier New', monospace;
+    background-color: var(--void-black);
+    background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+    color: #fff;
+    line-height: 1.4;
 }
 
-/* --- NAVIGATION --- */
 nav {
     display: flex;
     justify-content: center;
-    background-color: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(10px); /* Makes it look airy and modern */
-    padding: 25px;
+    background: #000;
+    border-bottom: 8px double var(--manic-pink);
+    padding: 20px;
+    transform: rotate(-0.5deg);
     position: sticky;
     top: 0;
-    z-index: 100;
-    border-bottom: 1px solid var(--peony-pink);
+    z-index: 1000;
 }
 
 nav a {
     text-decoration: none;
-    color: var(--matcha-dark);
-    font-weight: 600;
+    color: var(--tear-blue);
+    font-weight: 900;
+    font-size: 1.2rem;
     margin: 0 20px;
-    padding: 8px 16px;
-    border-radius: 12px;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    padding: 5px 15px;
+    border: 3px solid transparent;
+    transition: 0.1s;
 }
 
-/* Hover Effect: Soft grow and color swap */
 nav a:hover {
-    background-color: var(--peony-pink);
-    color: var(--text-earth);
-    transform: scale(1.1);
+    background: var(--manic-pink);
+    color: #000;
+    box-shadow: 8px 8px 0px var(--anxiety-yellow);
+    transform: skew(-15deg);
 }
 
-/* Active Page: The pink highlight */
 nav a.active {
-    background-color: var(--peony-pink);
-    border-bottom: 3px solid var(--peony-dark);
+    border: 3px solid var(--anxiety-yellow);
+    background: var(--bruise-purple);
+    color: #fff;
 }
 
-/* --- CONTAINERS --- */
 .container {
-    max-width: 900px;
-    margin: 50px auto;
-    padding: 40px;
-    background: var(--white);
-    border-radius: 30px; /* Extra rounded for that airy feel */
-    box-shadow: 0 20px 40px rgba(0,0,0,0.03);
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 50px;
+    background: rgba(0, 0, 0, 0.8);
+    border-left: 15px solid var(--bruise-purple);
+    border-right: 2px solid var(--tear-blue);
+    box-shadow: 20px 20px 0px rgba(255, 0, 255, 0.1);
 }
 
 h1 {
-    font-weight: 300;
-    font-size: 2.2rem;
-    color: var(--matcha-dark);
-    text-align: center;
-    margin-bottom: 40px;
+    font-size: 4rem;
+    color: var(--anxiety-yellow);
+    text-transform: uppercase;
+    letter-spacing: -5px;
+    margin-bottom: 20px;
+    filter: drop-shadow(4px 4px 0px var(--manic-pink));
 }
 
-/* --- TIMETABLE VIBES --- */
 table {
     width: 100%;
-    border-collapse: separate;
-    border-spacing: 8px; /* Adds space between cells for airiness */
+    border-collapse: collapse;
+    margin-top: 30px;
 }
 
 th {
-    font-weight: 600;
-    color: var(--matcha-dark);
+    background: #222;
+    color: var(--tear-blue);
+    border: 1px solid #444;
     padding: 15px;
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    letter-spacing: 2px;
+    text-align: left;
 }
 
 td {
-    background: var(--bg-cream);
-    padding: 18px;
-    border-radius: 15px;
+    border: 1px solid #222;
+    padding: 20px;
     text-align: center;
-    font-size: 0.95rem;
-    border: 1px solid transparent;
-    transition: 0.3s;
+    font-weight: bold;
+    filter: grayscale(80%) brightness(0.6);
+    transition: 0.2s;
 }
 
 td:hover {
-    border-color: var(--peony-pink);
-    transform: translateY(-3px);
-    background: var(--white);
+    filter: grayscale(0%) brightness(1.2);
+    transform: scale(1.02);
+    cursor: crosshair;
+    z-index: 10;
 }
 
-/* Subject Aesthetic Classes */
-.math { background-color: #fcebed; color: #d68a91; }
-.eng { background-color: #e8f4f8; color: #7ab3c4; }
-.sci { background-color: #f1f7ec; color: #9db68c; }
-.web { background-color: #fef5e7; color: #d4a373; }
-.agri { background-color: #f0f4ef; color: #8a9a5b; }
-.ict { background-color: #f5f0f9; color: #a38db8; }
+.math { background-color: #300; color: #f00; }
+.eng { background-color: #003; color: #0af; }
+.sci { background-color: #030; color: #0f0; }
+.web { background-color: #330; color: #ff0; }
+.agri { background-color: #130; color: #8f0; }
+.ict { background-color: #203; color: #a0f; }
 
 .special-break {
-    background-color: var(--peony-pink) !important;
-    color: var(--text-earth);
-    font-weight: bold;
-    letter-spacing: 1px;
+    background: #111 !important;
+    color: var(--melancholy-grey);
+    border: 2px dashed var(--manic-pink) !important;
 }
 
 .lunch {
-    background-color: var(--matcha) !important;
-    color: white;
+    background: var(--manic-pink) !important;
+    color: #000;
+    text-decoration: underline;
 }
 
-/* --- FORM STYLING --- */
+.member-card {
+    background: #050505;
+    border: 1px solid #222;
+    margin-bottom: 15px;
+    padding: 25px;
+    transition: 0.3s;
+    position: relative;
+}
+
+.member-card:hover {
+    border-color: var(--anxiety-yellow);
+    background: #111;
+}
+
+.member-card h3 {
+    color: var(--manic-pink);
+    font-size: 1.8rem;
+}
+
+.role {
+    color: var(--tear-blue);
+    font-family: serif;
+    font-style: italic;
+}
+
 input, select, textarea {
-    border: 1px solid var(--peony-pink);
-    background-color: var(--bg-cream);
-    border-radius: 12px;
-    padding: 12px;
-    margin-top: 5px;
+    width: 100%;
+    background: #000;
+    border: none;
+    border-bottom: 4px solid var(--bruise-purple);
+    color: var(--anxiety-yellow);
+    padding: 15px;
+    margin-top: 10px;
+    font-family: inherit;
+}
+
+input:focus {
+    outline: none;
+    border-bottom-color: var(--manic-pink);
 }
 
 .btn-submit {
-    background-color: var(--matcha);
-    color: white;
-    border-radius: 12px;
-    padding: 15px;
+    background: var(--tear-blue);
+    color: #000;
     border: none;
-    font-weight: 600;
+    padding: 25px;
+    width: 100%;
+    font-size: 1.5rem;
+    font-weight: 900;
+    margin-top: 30px;
     cursor: pointer;
-    transition: 0.3s;
+    clip-path: polygon(0 20%, 100% 0, 100% 80%, 0 100%);
 }
 
 .btn-submit:hover {
-    background-color: var(--peony-dark);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    background: var(--anxiety-yellow);
+    transform: translateY(-5px);
 }
